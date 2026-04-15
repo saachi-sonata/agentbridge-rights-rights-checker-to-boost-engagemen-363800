@@ -1,0 +1,350 @@
+{
+  "id": "tpl-2305708568",
+  "name": "Rights Rights Checker to boost engagement",
+  "description": "Rights Rights Checker to boost engagement classifies transcripts and classifies audience segments; applies decision gates and observability; orchestrates via Recommendation Engine to ensure brand safety.",
+  "industry": "Media & Entertainment",
+  "pattern": "RAG",
+  "complexity": "Beginner",
+  "rating": 4.4,
+  "downloads": 8211,
+  "favorites": 832,
+  "executionTime": "8 min",
+  "tags": [
+    "ads",
+    "audience",
+    "rag",
+    "media"
+  ],
+  "steps": [
+    {
+      "id": "intake",
+      "name": "Series Intake",
+      "description": "Collect, validate and normalize metadata from CDP; attach a runId and timestamp for traceability."
+    },
+    {
+      "id": "retrieve-0",
+      "name": "Retrieve",
+      "description": "Execute retrieve phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "ground-1",
+      "name": "Ground",
+      "description": "Execute ground phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results."
+    },
+    {
+      "id": "recommendation-0",
+      "name": "Recommendation",
+      "description": "Recommendation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "rights-validation-1",
+      "name": "Rights Validation",
+      "description": "Rights Validation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "content-classification-2",
+      "name": "Content Classification",
+      "description": "Content Classification across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "audience-targeting-3",
+      "name": "Audience Targeting",
+      "description": "Audience Targeting across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability."
+    },
+    {
+      "id": "finalize",
+      "name": "Programming Grid",
+      "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to Recommendation Engine; return response JSON for the client."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "Series Intake",
+        "description": "Collect, validate and normalize metadata from CDP; attach a runId and timestamp for traceability.",
+        "nodeType": "input",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "retrieve-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Retrieve",
+        "description": "Execute retrieve phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "ground-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Ground",
+        "description": "Execute ground phase for the RAG pattern: persist interim state, enforce guardrails, and emit structured JSON results.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "recommendation-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "Recommendation",
+        "description": "Recommendation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "rights-validation-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "Rights Validation",
+        "description": "Rights Validation across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "content-classification-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "Content Classification",
+        "description": "Content Classification across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    },
+    {
+      "id": "audience-targeting-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "Audience Targeting",
+        "description": "Audience Targeting across joined datasets; branch on thresholds using decision gates; write metrics (success/error counts) for observability.",
+        "nodeType": "llm",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1560,
+        "y": 120
+      }
+    },
+    {
+      "id": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "Programming Grid",
+        "description": "Assemble final payload with status, artifacts, KPIs and audit trail; store to Recommendation Engine; return response JSON for the client.",
+        "nodeType": "output",
+        "category": "ai-models",
+        "executionMode": "autonomous"
+      },
+      "position": {
+        "x": 1810,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "intake",
+      "target": "retrieve-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-1",
+      "source": "retrieve-0",
+      "target": "ground-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-2",
+      "source": "ground-1",
+      "target": "recommendation-0",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-3",
+      "source": "recommendation-0",
+      "target": "rights-validation-1",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-4",
+      "source": "rights-validation-1",
+      "target": "content-classification-2",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-5",
+      "source": "content-classification-2",
+      "target": "audience-targeting-3",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    },
+    {
+      "id": "edge-6",
+      "source": "audience-targeting-3",
+      "target": "finalize",
+      "type": "agentbridge",
+      "data": {
+        "label": "flow"
+      }
+    }
+  ],
+  "preview": "Series Intake → Retrieve → Ground → Recommendation → Rights Validation → Content Classification → Audience Targeting → Programming Grid",
+  "featured": false,
+  "createdAt": "2025-11-14T16:41:19.360Z",
+  "author": "AgentBridge Team",
+  "deployments": 824,
+  "lastDeployed": "2026-03-30T17:58:55.757Z",
+  "configuration": {
+    "provider": "azure",
+    "region": "us-west-2",
+    "compute": "gpu-single"
+  },
+  "healthStatus": "healthy",
+  "deploymentCount": 418,
+  "githubRepo": "https://github.com/agentbridge/rights-rights-checker-to-boost-engagement",
+  "maintainer": "AgentBridge Team",
+  "agenticLayers": {
+    "reasoning": {
+      "modelType": "gpt-4o",
+      "reasoningPattern": "ReAct",
+      "contextWindow": 128000,
+      "memorySystem": "hybrid",
+      "decisionFramework": "Multi-Criteria Decision Analysis"
+    },
+    "orchestration": {
+      "workflowEngine": "n8n",
+      "coordinationPattern": "centralized",
+      "failoverStrategy": "retry",
+      "loadBalancing": "intelligent"
+    },
+    "protocol": {
+      "communicationProtocol": "MCP",
+      "messageFormat": "JSON",
+      "authenticationMethod": "OAuth2",
+      "encryptionStandard": "AES-256"
+    },
+    "governance": {
+      "policyEngine": "OPA",
+      "complianceStandards": [
+        "SOC2",
+        "GDPR"
+      ],
+      "auditTrail": true,
+      "riskAssessment": "medium",
+      "dataClassification": "internal"
+    },
+    "observability": {
+      "metricsCollection": "Prometheus",
+      "loggingFramework": "ELK",
+      "tracingSystem": "Jaeger",
+      "alertingRules": [],
+      "dashboardConfig": {
+        "layout": "grid",
+        "widgets": [
+          "metrics",
+          "logs",
+          "traces"
+        ],
+        "refreshInterval": 30
+      }
+    },
+    "intelligence": {
+      "learningCapability": "online",
+      "knowledgeBase": "vector-db",
+      "adaptationMechanism": "ml-based",
+      "performanceOptimization": "ai-driven"
+    }
+  },
+  "businessFunction": "data-preparation-node",
+  "autonomyLevel": "semi-autonomous",
+  "cognitiveCapabilities": [
+    {
+      "name": "Pattern Recognition",
+      "description": "Identifies patterns in business processes",
+      "confidenceLevel": 0.85,
+      "lastUpdated": "2026-04-15T16:41:19.447Z"
+    }
+  ],
+  "roiMetrics": {
+    "costSavings": 52708,
+    "timeReduction": 41,
+    "accuracyImprovement": 12,
+    "throughputIncrease": 41,
+    "errorReduction": 31
+  },
+  "complianceFramework": {
+    "standards": [
+      "SOC2",
+      "GDPR",
+      "ISO27001"
+    ],
+    "certifications": [
+      "SOC2 Type II"
+    ],
+    "auditFrequency": "monthly",
+    "lastAudit": "2026-02-08T11:57:18.188Z"
+  },
+  "scalingPolicy": {
+    "minInstances": 1,
+    "maxInstances": 10,
+    "scaleUpThreshold": 80,
+    "scaleDownThreshold": 20,
+    "cooldownPeriod": 300
+  }
+}
